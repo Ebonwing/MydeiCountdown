@@ -1,0 +1,106 @@
+<style>
+
+header {
+    color:#ffe8cc;
+    text-align:center;
+    margin-right:600px;
+    margin-top:100px;
+}
+div {
+    text-align:center;
+}
+body {
+    background-image: url(mydei.png);
+    background-repeat: no-repeat;
+    background-position-x: center; 
+}
+span {
+    font-size:32px;
+    background: rgba(11,5,5,0.7);
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:#ffe8cc;
+}
+img {
+    margin-right:auto;
+    margin-left:-260px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.transparent {
+    color: rgba(11,5,5,0.0001);
+}
+@media only screen and (orientation:portrait)
+{
+    #wrapper { display:none; }
+    #warning-message { display:block; color: white;}
+    
+    body
+    {
+        background:url(mydei.png) no-repeat;
+        background-position-x: -2000px; 
+        background-size: cover;
+        height: 100%;
+    }       
+}
+</style>
+<header>
+<title>Mydei Banner Countdown</title>
+<h1>Mydei Banner Countdown</h1>
+</header>
+<body>
+
+<div id="demo" class="vertical-align"> <span></span></div>
+</body>
+<script>
+
+  var date = new Date("2025-03-19 04:00:00".replace(/-/g, '/'))
+  date.setUTCHours(3)
+  var timer = date.getTime();
+  var now = new Date().getTime();
+
+  var difference = timer - now;
+  var days = Math.floor(difference / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((difference % (1000 * 60)) / 1000);
+  document.getElementById("demo").innerHTML = '<span class="vertical-align">'+days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s " +'</span>';
+  var difference = timer - now;
+
+
+  var days = Math.floor(difference / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+  document.getElementById("demo").innerHTML = '<span>'+days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s " +'</span>';
+  if (difference < 0) {
+    document.getElementById("demo").innerHTML = '<span>Why are you still here? Go pull Mydei already.</span>';
+  }
+  var x = setInterval(function() {
+
+  var now = new Date().getTime();
+
+  var difference = timer - now;
+
+
+  var days = Math.floor(difference / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+  document.getElementById("demo").innerHTML = '<span>'+days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s " +'</span>';
+  if (difference < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = '<span>Why are you still here? Go pull Mydei already.</span>';
+  }
+}, 1000);
+</script>
